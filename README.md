@@ -4,12 +4,14 @@ El presente proyecto no es nada más que un script en Python que realiza "El sor
 
 La lógica es bastante sencilla, recibe un json con los correos y nombres de los participantes, luego, toma los correos (puesto que son irrepetibles) y los "desordena" aleatoriamente para crear un nuevo diccionario, el cual tiene como clave el correo de quien regala, y como valor, el correo de quién le sigue en la "lista desordenada", dejando al último "regalador" asignado al primero (es decir, la lógica de regalo es circular una vez se desordena la lista). Dicho algoritmo tiene una complejidad de O(n) en tanto cada estrcutura de datos se recorre una sola vez, al mismo tiempo que la lista rotación circular garantiza que nadie se regale a sí mismo. En el siguiente diagrama se aprecia mejor el funcionamiento
 
-1. Lista Original 2. Lista "Desordenada" 3. Círculo de Regalos
-   ┌───────────────┐ ┌───────────────┐  
-   │ 1. Ana │ │ 1. Carlos │ [ Carlos ]
-   │ 2. Beto │ ──▶ │ 2. Beto │ ──▶ ↗ ↘
-   │ 3. Carlos │ │ 3. Ana │ [ Ana ] ◀─── [ Beto ]
-   └───────────────┘ └───────────────┘
+```text
+  1. Lista Original       2. Lista "Desordenada"    3. Círculo de Regalos
+  ┌───────────────┐       ┌───────────────┐                [ Carlos ]
+  │ 1. Ana        │       │ 1. Carlos     │               ↗          ↘
+  │ 2. Beto       │  ──▶  │ 2. Beto       │  ──▶      [ Ana ] ◀─── [ Beto ]
+  │ 3. Carlos     │       │ 3. Ana        │
+  └───────────────┘       └───────────────┘
+```
 
 Si bien este proyecto es reinventar la rueda, el verdadero valor reside en que además de ser auditable, está pensado para ser autoalojado (Self-hosted) por las siguientes razones:
 
