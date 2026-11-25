@@ -1,0 +1,14 @@
+# Credenciales y tokens de Google (¡NUNCA subir!)
+credentials.json
+token.json
+
+# Archivos de datos locales (por si guardas los correos en csv/txt/json)
+*.csv
+*.txt
+participantes.json
+
+# Entornos virtuales y caché de Python
+__pycache__/
+*.py[cod]
+venv/
+.env
